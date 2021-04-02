@@ -1,0 +1,14 @@
+.card-m{
+    cursor: pointer;
+}
+.card-m:hover{
+    z-index: 10;
+    box-shadow: 0 0.5rem 0.5rem rgb(0 0 0 / 15%) !important;
+    background:#eee;
+    transform: scale(1.01);
+}
+
+.card-m:active{
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+}
+

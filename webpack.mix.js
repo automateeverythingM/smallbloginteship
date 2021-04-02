@@ -11,8 +11,19 @@ const mix = require("laravel-mix");
  |
  */
 
+mix.browserSync({
+    port: 8000,
+    files: [
+        "app/**/*",
+        "public/**/*",
+        "resources/views/**/*",
+        "resources/lang/**/*",
+        "routes/**/*",
+    ],
+});
+
 mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
+    .sass("resources/sass/index.scss", "public/css")
     .sourceMaps()
-    .browserSync({ port: 8000 })
     .disableNotifications();

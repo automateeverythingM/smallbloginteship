@@ -12,3 +12,13 @@
 .card-m:active {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
 }
+
+.edit-delete {
+  position: absolute;
+  right: 0;
+  z-index: 11;
+}
+
+.card-btn {
+  border-radius: 9999px;
+}

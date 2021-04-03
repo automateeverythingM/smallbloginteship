@@ -6,6 +6,7 @@
         "fakerphp",
         "fideloper",
         "guzzlehttp",
+        "markdowneditor",
         "nunomaduro",
         "phpunit",
         "tailwindcss"

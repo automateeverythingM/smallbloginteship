@@ -32,20 +32,32 @@
     <section class="mt-4">
         <div class="font-weight-bold" style="font-size:1.6rem;"><img src="{{asset('img/icons/graph.svg')}}" alt=""> Trending blog posts</div>
         <div class="pt-4">
-            <div class="row shadow-sm card-m p-4 rounded ">
-                <div class="text-muted display-3 font-weight-bold col-sm-2">01</div>
-                <div class="col-sm-9">
-                    <div>
-                        <img src="{{asset('img/icons/avatar.svg')}}" alt=""><span class="font-weight-bold">Alisa Brends</span>
+
+                <div class="row shadow-sm card-m p-4 rounded ">
+                    <div class="text-muted display-3 font-weight-bold col-sm-2">01</div>
+                    <div class="col-sm-9">
+                        <div>
+                            <img src="{{asset('img/icons/avatar.svg')}}" alt=""><span class="font-weight-bold">Alisa Brends</span>
                     </div>
                     <div class="h3 mt-3">
                         The Clubhouse clones are coming
                     </div>
-                    <div class="text-muted">
-                        Apr 1 * 9 min read
+                    <div class="d-flex">
+                        <div class="text-muted mr-1">
+                            Apr 1 * 9 min read
+                        </div>
+                            <span class="ml-2">
+                                <span>312</span>
+                                    <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+                            </span>
+                            <span class="ml-2">
+                                <span>12</span>
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            </span>
                     </div>
                 </div>
             </div>
+        </div>
             <div class="row shadow-sm card-m p-4 rounded">
                 <div class="col-sm-2 text-muted display-3 font-weight-bold mx-3">02</div>
                 <div class="col-sm-9">
@@ -55,8 +67,18 @@
                     <div class="h3 mt-3">
                         Three Things in Life That Aren’t Worth The Effort
                     </div>
-                    <div class="text-muted">
-                        Apr 6 * 9 min read
+                    <div class="d-flex">
+                        <div class="text-muted">
+                            Apr 6 * 9 min read
+                        </div>
+                            <span class="ml-2">
+                                <span>218</span>
+                                    <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+                            </span>
+                            <span class="ml-2">
+                                <span>12</span>
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                            </span>
                     </div>
                 </div>
             </div>
@@ -69,8 +91,18 @@
                     <div class="h3 mt-3">
                         5 Gentle Wisdoms That Make Life3
                     </div>
-                    <div class="text-muted">
-                        May 15 * 15 min read
+                    <div class="d-flex">
+                        <div class="text-muted">
+                            May 15 * 15 min read
+                        </div>
+                        <span class="ml-2">
+                            <span>50</span>
+                                <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+                        </span>
+                        <span class="ml-2">
+                            <span>7</span>
+                                <i class="fa fa-comment-o" aria-hidden="true"></i>
+                        </span>
                     </div>
                 </div>
 
@@ -84,13 +116,23 @@
                     <div class="h3 mt-3">
                         Captivate Your Community with Stage Channels
                     </div>
-                    <div class="text-muted">
-                        Aug 3 * 5 min read
+                    <div class="d-flex">
+                        <div class="text-muted">
+                            Aug 3 * 5 min read
+                        </div>
+                        <span class="ml-2">
+                            <span>112</span>
+                                <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+                        </span>
+                        <span class="ml-2">
+                            <span>4</span>
+                                <i class="fa fa-comment-o" aria-hidden="true"></i>
+                        </span>
                     </div>
                 </div>
             </div>
 
-            <button class="btn btn-secondary w-100 font-weight-bold mt-3 " style="font-size:1.6rem;">See all</button>
+            <a class="btn btn-secondary w-100 font-weight-bold mt-3 " href="{{route('blog.index')}}" style="font-size:1.6rem;">See all</a>
         </div>
 
     </section>

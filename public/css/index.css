@@ -5,7 +5,7 @@
 .card-m:hover {
   z-index: 10;
   box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.15) !important;
-  background: #eee;
+  background: #efefef;
   transform: scale(1.01);
 }
 
@@ -13,12 +13,29 @@
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
 }
 
-.edit-delete {
+.on_card_buttons {
   position: absolute;
-  right: 0;
   z-index: 11;
+  top: 10px;
+  right: 20px;
 }
 
-.card-btn {
-  border-radius: 9999px;
+.position_left {
+  top: 0;
+  left: 0;
+}
+
+.heart:hover {
+  z-index: 10;
+  color: #ce5454;
+}
+
+.heart:active {
+  color: #ba3535;
+}
+
+.reaction-btn {
+  outline: none;
+  border: none;
+  background: transparent;
 }

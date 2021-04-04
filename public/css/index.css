@@ -40,3 +40,18 @@
   border: none;
   background: transparent;
 }
+
+.border-left-yellow {
+  border-left: 10px solid #def15e;
+}
+
+.border-left-green {
+  border-left: 10px solid #5ef16f;
+}
+
+.text_up_right {
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  -webkit-text-orientation: upright;
+          text-orientation: upright;
+}

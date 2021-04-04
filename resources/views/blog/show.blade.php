@@ -7,7 +7,14 @@
 
     <h1>{{$blog->title}}</h1>
     <hr>
-    <div id="blog_body" data-blog="{{$blog->blog_body}}">
+
+    @if ($blog->blog_hero_img)
+
+    <div class="text-center">
+         <img class="w-50" src="{{str_contains($blog->blog_hero_img, 'blog_hero_img')? asset('storage/' . $blog->blog_hero_img ): $blog->blog_hero_img }}" alt="blog hero">
+    </div>
+        @endif
+        <div id="blog_body" data-blog="{{$blog->blog_body}}">
 
     </div>
 </div>

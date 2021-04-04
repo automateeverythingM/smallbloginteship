@@ -27,6 +27,7 @@ class BlogFactory extends Factory
             "user_id" => $this->faker->numberBetween(1, 9),
             'status' => $this->faker->boolean(50),
             'likes' => $this->faker->numberBetween(1, 250),
+            'blog_hero_img' => $this->faker->imageUrl(640, 480),
         ];
     }
 }

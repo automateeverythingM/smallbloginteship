@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -39,31 +41,19 @@ class BlogController extends Controller
     public function store(Request $request)
     {
 
-        //          //Handle file upload
-        //         if ($request->hasFile('cover_image')){
-        //             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-        //             //Get just filename
-        //             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //             //Get just extension
-        //             $extension = $request->file('cover_image')->getClientOriginalExtension();
-        //             //Filename to store
-        //             $fileNameToStore = $filename.'_'.time().'.'.$extension;
-        //             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-
-        //         } else {
-        //             $fileNameToStore='noimage.jpg';
-        //         }
-        // $post->cover_image = $fileNameToStore;
-        //
+        if ($request->hasFile('blog_hero_img')) {
+            $path = Str::of(Storage::putFile('public/images/' . auth()->id() . '/blog_hero', $request->file('blog_hero_img')))->remove('public');
+        }
 
         $user = User::find(auth()->id());
-        //        dd($user);
         $user->blog()->create([
             'title' => $request->input('title'),
             'blog_body' => $request->input('blog_body'),
             'user_id' => 6,
             'status' => 0,
-            'likes' => 0
+            'likes' => 0,
+            'blog_hero_img' => $path
+
         ]);
 
 
@@ -79,6 +69,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::find($id);
+
         return view('blog.show')->with('blog', $blog);
         //
     }

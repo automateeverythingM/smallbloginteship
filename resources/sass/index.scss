@@ -40,3 +40,15 @@ $gold : #e2d454;
     border: none;
     background: transparent;
 }
+
+.border-left-yellow{
+    border-left: 10px solid rgb(222, 241, 94);
+}
+.border-left-green{
+    border-left: 10px solid rgb(94, 241, 111);
+}
+
+.text_up_right{
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}

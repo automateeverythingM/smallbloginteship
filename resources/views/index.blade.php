@@ -4,13 +4,13 @@
     <header class="">
         <div class="w-100 text-center row align-items-center flex-column px-5">
             <h1 class="d-block">Create you blog</h1>
-            <h4>Notify people about you new blog</h4>
+            <h4>Notify people about your new blog</h4>
 
         </div>
         <hr>
     </header>
     <section class="py-4">
-        <h3 class="text-muted">Fully customizble blog</h3>
+        <h3 class="text-muted">Fully customizable blog</h3>
         <h4 class="text-muted text-right h5">{{now()}}</h4>
         <div class="position-relative d-flex align-items-center justify-content-center">
             <picture>

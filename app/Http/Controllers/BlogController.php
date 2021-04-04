@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
-
-        return view('blog.index');
+        $blogs = Blog::where('status', '=', true)->get();
+        return view('blog.index')->with('blogs', $blogs);
     }
 
     /**
@@ -25,7 +27,6 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
         return view('blog.create');
     }
 
@@ -37,10 +38,36 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
+        //          //Handle file upload
+        //         if ($request->hasFile('cover_image')){
+        //             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+        //             //Get just filename
+        //             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //             //Get just extension
+        //             $extension = $request->file('cover_image')->getClientOriginalExtension();
+        //             //Filename to store
+        //             $fileNameToStore = $filename.'_'.time().'.'.$extension;
+        //             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+        //         } else {
+        //             $fileNameToStore='noimage.jpg';
+        //         }
+        // $post->cover_image = $fileNameToStore;
         //
-        $title = $request->input('title');
-        $blog_body = $request->input('blog_body');
-        dd($request->input('blog_body'));
+
+        $user = User::find(auth()->id());
+        //        dd($user);
+        $user->blog()->create([
+            'title' => $request->input('title'),
+            'blog_body' => $request->input('blog_body'),
+            'user_id' => 6,
+            'status' => 0,
+            'likes' => 0
+        ]);
+
+
+        return redirect('profile');
     }
 
     /**
@@ -51,11 +78,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $blog = (object)[
-            'title' => "Blogs Title",
-            'blog_body' => "# Blog Title"
-        ];
-
+        $blog = Blog::find($id);
         return view('blog.show')->with('blog', $blog);
         //
     }
@@ -66,12 +89,8 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Blog $blog)
     {
-        $blog = (object)[
-            'title' => "Blogs Title",
-            'blog_title' => "# Blog Title"
-        ];
         return view('blog.edit')->with('blog', $blog);
     }
 
@@ -82,15 +101,14 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Blog $blog)
     {
-        //
-        $blog = (object)[
+        $blog->update([
             'title' => $request->input('title'),
             'blog_body' => $request->input('blog_body')
-        ];
+        ]);
 
-        dd($blog);
+        return redirect('/blog/' . $blog->id);
     }
 
     /**
@@ -101,6 +119,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return redirect('profile');
     }
 }

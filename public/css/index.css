@@ -1,5 +1,6 @@
 .card-m {
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 .card-m:hover {

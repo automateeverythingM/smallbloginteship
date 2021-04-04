@@ -13,7 +13,6 @@
                     <input class="form-control" type="text" name="title" autocomplete="off" autofocus >
                 </label>
                 <textarea name="blog_body" id="markdown"></textarea>
-
                 <button class="btn btn-primary font-weight-bold" onClick="passValueToTextArea">Save Blog</button>
         </form>
     </div>

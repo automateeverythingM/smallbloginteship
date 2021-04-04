@@ -11,5 +11,13 @@ class Blog extends Model
     protected $fillable = [
         'title',
         'blog_body',
+        'user_id',
+        'status',
+        'likes',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

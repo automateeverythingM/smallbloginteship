@@ -46,10 +46,10 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'db4free.net'),
+            'host' => env('DB_HOST', 'freedb.tech'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'smallblogdb'),
-            'username' => env('DB_USERNAME', 'gogopowerranges'),
+            'database' => env('DB_DATABASE', 'freedbtech_smallblogdb'),
+            'username' => env('DB_USERNAME', 'freedbtech_Marko'),
             'password' => env('DB_PASSWORD', 'president1'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

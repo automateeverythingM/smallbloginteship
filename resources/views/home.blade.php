@@ -31,7 +31,7 @@
                             </div>
 
                             <x-blog-card :index="$loop->index +1" :blog="$blog"/>
-                                <div class=" text-white text-center {{$blog->status == 0 ? "bg-warning" : "bg-sucess"}}">{{$blog->status == 0 ? "pending approval": "published"}}</div>
+                            <div class=" text-white text-center {{$blog->status == 0 ? "bg-warning" : "bg-sucess"}}">{{$blog->status == 0 ? "pending approval": "published"}}</div>
                         </div>
                     @empty
                     <p class="h3 text-center">No posts</p>

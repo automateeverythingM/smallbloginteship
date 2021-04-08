@@ -26,11 +26,9 @@
         </div>
     </section>
             <div class="font-weight-bold mb-3" style="font-size:1.6rem;"><img src="{{asset('img/icons/graph.svg')}}" alt=""> Trending blog posts</div>
-            @forelse ($blogs as $blog )
-            <x-blog-card :index="$loop->index +1" :blog="$blog"/>
-            @empty
-            <p class="h3 text-center">No posts</p>
-            @endforelse
+
+            <x-blog-loop :blogs="$blogs"/>
+
             <a class="btn btn-secondary w-100 font-weight-bold mt-3 " href="{{route('blog.index')}}" style="font-size:1.6rem;">See all</a>
         </div>
 

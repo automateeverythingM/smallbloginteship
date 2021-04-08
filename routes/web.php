@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
 use App\Models\Blog;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 // |
 // */
 
- Route::get('/', function () {
-     $blogs = Blog::where('status', '=', true)->orderBy('likes', 'desc')->take(5)->get();
-     return view('index', ['blogs' => $blogs]);
- })->name('index');
- Auth::routes();
+Route::get('/', function () {
+    $blogs = Blog::where('status', '=', true)->orderBy('likes', 'desc')->take(5)->get();
+    return view('index', ['blogs' => $blogs]);
+})->name('index');
+Auth::routes();
+Route::get('/profile', [HomeController::class, 'index'])->middleware('restrict')->name('profile');
+Route::resource('/blog', BlogController::class);
 
- Route::get('/profile', [\App\Http\Controllers\HomeController::class, 'index'])->name('profile');
- Route::resource('/blog', BlogController::class);
+Route::resource('/admin', AdminController::class)->middleware('adminAuth')->only(['index', 'update']);

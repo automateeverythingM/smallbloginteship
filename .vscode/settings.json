@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "Authenticatable",
         "autoload",
         "autoloader",
         "dont",
@@ -9,6 +10,7 @@
         "markdowneditor",
         "nunomaduro",
         "phpunit",
-        "tailwindcss"
+        "tailwindcss",
+        "updaate"
     ]
 }

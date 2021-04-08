@@ -15,6 +15,7 @@ class Blog extends Model
         'status',
         'likes',
         'blog_hero_img'
+
     ];
 
     public function user()

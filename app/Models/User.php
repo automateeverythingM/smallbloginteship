@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+
     ];
 
     /**
@@ -38,6 +39,28 @@ class User extends Authenticatable
     {
         return $this->HasMany(Blog::class);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasAnyRole(string $role)
+    {
+        return $this->roles()->where('role', $role);
+    }
+
+    public function hasAnyRoles(array $role)
+    {
+        return $this->roles()->whereIn('role', $role)->first();
+    }
+
+    public function getRole()
+    {
+        return $this->roles()->get()->first()->role;
+    }
+
+
 
     /**
      * The attributes that should be cast to native types.

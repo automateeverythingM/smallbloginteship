@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -69,9 +68,14 @@
                                     <a class="dropdown-item" href="{{route('index')}}">
                                         Home
                                     </a>
-                                    <a class="dropdown-item" href="{{route('profile')}}">
-                                        Profile
-                                    </a>
+                                    @if (Gate::allows('is-admin'))
+                                        <a class="dropdown-item" href="/admin">Admin Dashboard</a>
+                                    @else
+                                        <a class="dropdown-item" href="{{route('profile')}}">
+                                            Profile
+                                        </a>
+
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -90,10 +94,15 @@
         </nav>
 
         <main class="py-4 container h-100">
+            <x-flash-action-message/>
             @yield('content')
         </main>
 
+        <script src="{{ asset('js/app.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
         @yield('js')
+
     </div>
     <footer class="d-flex bg-secondary shadow mt-5 border-top px-5 py-3 justify-content-between">
         <div class="container font-weight-bold">
